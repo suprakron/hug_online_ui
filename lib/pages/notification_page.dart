@@ -9,9 +9,7 @@ class NotificationPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-
-        
-      
+ 
         ],
       ),
     );

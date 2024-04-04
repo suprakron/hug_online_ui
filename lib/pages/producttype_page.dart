@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hug_online_ui/pages/productdetail_page.dart';
 
 class ProductTypePage extends StatelessWidget {
   @override
@@ -38,7 +39,12 @@ class ProductTypePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+                    Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductDetailPage()),
+                );
+            },
           ),
           IconButton(
             icon: Icon(Icons.notification_important_rounded),
@@ -46,7 +52,10 @@ class ProductTypePage extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.home),
-            onPressed: () {},
+            onPressed: () {
+
+
+            },
           ),
         ],
       ),

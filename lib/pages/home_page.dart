@@ -11,7 +11,7 @@ import 'package:hug_online_ui/Component/profile.dart';
 import 'package:hug_online_ui/pages/category_page.dart';
 import 'package:hug_online_ui/pages/producttype_page.dart';
 import 'package:hug_online_ui/pages/notification_page.dart';
- 
+import 'package:hug_online_ui/pages/location_page.dart';
 
 class HomePage extends StatefulWidget {
 //  const HomePage({Key? key}) : super(key: key);
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
     'assets/images/p3.jpg',
   ];
 
-  Widget _buildIconButtonWithCircleBorder(String imagePath, Color color) {
+  Widget _buildIconButtonWithCircleBorder(String imagePath, String text) {
     return SizedBox(
       width: 100,
       height: 100,
@@ -96,20 +96,26 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: color, width: 2.0),
+                border: Border.all(color: Colors.transparent, width: 2.0),
               ),
             ),
           ),
           Align(
             alignment: Alignment.center,
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              icon: Image.asset(
-                imagePath,
-                width: 50,
-                height: 50,
-              ),
-              onPressed: () {},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  imagePath,
+                  width: 50,
+                  height: 50,
+                ),
+                SizedBox(height: 8),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 14),
+                ),
+              ],
             ),
           ),
         ],
@@ -129,7 +135,6 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.0),
           ),
-
           child: Row(
             children: [
               Icon(Icons.search),
@@ -144,9 +149,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-
         ),
-
         backgroundColor: Colors.blue,
         leading: IconButton(
           icon: Icon(Icons.menu),
@@ -188,81 +191,88 @@ class _HomePageState extends State<HomePage> {
                   );
                 }),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
-            child: Container(
-              height: 200,
-              color: Color.fromARGB(255, 254, 255, 255),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'หมวดหมู่',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'หมวดหมู่',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CategoryPage()),
-                            );
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(
-                                right: 20),  
-                            child: Text(
-                              'ทั้งหมด',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(255, 111, 113, 115),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CategoryPage()),
+                              );
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(right: 20),
+                              child: Text(
+                                'ทั้งหมด',
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      const Color.fromARGB(255, 111, 113, 115),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _buildIconButtonWithCircleBorder(
-                          'assets/images/icon1.png',
-                          Colors.green, // สีเขียว
-                        ),
-                        _buildIconButtonWithCircleBorder(
-                          'assets/images/icon2.png',
-                          Colors.pink, // สีชมพู
-                        ),
-                        _buildIconButtonWithCircleBorder(
-                          'assets/images/icon3.png',
-                          Colors.blue, // สีฟ้า
-                        ),
-                        _buildIconButtonWithCircleBorder(
-                          'assets/images/icon4.png',
-                          Colors.blueAccent, // สีน้ำเงิน
-                        ),
-                        _buildIconButtonWithCircleBorder(
-                          'assets/images/icon5.png',
-                          Colors.orange, // สีส้ม
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildIconButtonWithCircleBorder(
+                            'assets/images/m1_homepage.png',
+                            'ยา',
+                          ),
+                          _buildIconButtonWithCircleBorder(
+                            'assets/images/m2_homepage.png',
+                            'เครื่องสำอาง',
+                          ),
+                          _buildIconButtonWithCircleBorder(
+                            'assets/images/m3_homepage.png',
+                            'อาหารเสริม',
+                          ),
+                          _buildIconButtonWithCircleBorder(
+                            'assets/images/m4_homepage.png',
+                            'อุปกรณ์ทางการแพทย์',
+                          ),
+                          _buildIconButtonWithCircleBorder(
+                            'assets/images/m5_homepage.png',
+                            'วัสดุทางการแพทย์',
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 5),
+                    Center(
+                      child: Image.asset(
+                        'assets/images/code_mainpage.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
           SizedBox(height: 10),
           Padding(
@@ -281,12 +291,12 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductTypePage()),
+                      MaterialPageRoute(
+                          builder: (context) => ProductTypePage()),
                     );
                   },
                   child: Container(
-                    margin: EdgeInsets.only(
-                        right: 20), 
+                    margin: EdgeInsets.only(right: 20),
                     child: Text(
                       'ทั้งหมด',
                       style: TextStyle(
@@ -338,12 +348,12 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductTypePage()),
+                      MaterialPageRoute(
+                          builder: (context) => ProductTypePage()),
                     );
                   },
                   child: Container(
-                    margin: EdgeInsets.only(
-                        right: 20),  
+                    margin: EdgeInsets.only(right: 20),
                     child: Text(
                       'ทั้งหมด',
                       style: TextStyle(
@@ -397,7 +407,15 @@ class _HomePageState extends State<HomePage> {
             label: 'หน้าแรก',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
+            icon: IconButton(
+              icon: Icon(Icons.location_on),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LocationPage()),
+                );
+              },
+            ),
             label: 'สถานที่ใกล้เคียง',
           ),
           BottomNavigationBarItem(
@@ -412,8 +430,6 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'คำสั่งซื้อ',
           ),
-
-
           BottomNavigationBarItem(
             icon: IconButton(
               icon: Icon(Icons.notifications),
@@ -426,8 +442,6 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'แจ้งเตือน',
           ),
-
-
           BottomNavigationBarItem(
             icon: IconButton(
               icon: Icon(Icons.person),
@@ -440,8 +454,6 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'ฉัน',
           ),
-
-
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

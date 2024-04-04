@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hug_online_ui/Component/editprofile_page.dart';
 import 'package:hug_online_ui/pages/home_page.dart';
-import 'package:hug_online_ui/shopping/cart.dart';
-import 'package:hug_online_ui/pages/question_page.dart';
 import 'package:hug_online_ui/pages/my_order.dart';
 import 'package:hug_online_ui/pages/favorite_products.dart';
 import 'package:hug_online_ui/pages/mycode_page.dart';
 import 'package:hug_online_ui/pages/myaddress_page.dart';
-import 'package:hug_online_ui/Component/change_password.dart';
 import 'package:hug_online_ui/pages/refer_friend.dart';
+import 'package:hug_online_ui/Component/change_password.dart';
+import 'package:hug_online_ui/pages/question_page.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -43,13 +43,29 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 20),
-              Padding(
-                padding: EdgeInsets.only(right: 30.0), // ระยะห่างจากขอบด้านซ้าย
-                child: Text(
-                  'แก้ไข',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.blue,
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  );
+                },
+                child: Container(
+                  width: 50,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 25, 25, 25),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'แก้ไข',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: const Color.fromARGB(255, 226, 233, 238),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -71,9 +87,10 @@ class ProfilePage extends StatelessWidget {
           Card(
             child: ListTile(
               onTap: () {
-                   Navigator.push(
+                Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FavoriteProductsPage()),
+                  MaterialPageRoute(
+                      builder: (context) => FavoriteProductsPage()),
                 );
               },
               leading: Icon(Icons.favorite),
@@ -83,7 +100,7 @@ class ProfilePage extends StatelessWidget {
           Card(
             child: ListTile(
               onTap: () {
-                    Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyCodePage()),
                 );
@@ -95,7 +112,7 @@ class ProfilePage extends StatelessWidget {
           Card(
             child: ListTile(
               onTap: () {
-                     Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyAddressPage()),
                 );
@@ -119,7 +136,7 @@ class ProfilePage extends StatelessWidget {
           Card(
             child: ListTile(
               onTap: () {
-                     Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ChangePasswordPage()),
                 );
@@ -140,16 +157,27 @@ class ProfilePage extends StatelessWidget {
               title: Text('คำถามที่พบบ่อย'),
             ),
           ),
-          Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              },
-              leading: Icon(Icons.logout),
-              title: Text('ออกจากระบบ'),
+          SizedBox(height: 210),
+          Padding(
+            padding: EdgeInsets.only(bottom: 8.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/logo_profile.png',
+                    width: 200,
+                    height: 110,
+                  ),
+                  Text(
+                    'Version',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

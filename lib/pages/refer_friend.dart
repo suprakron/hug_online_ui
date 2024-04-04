@@ -20,7 +20,7 @@ class ReferFriendPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
-            // เพิ่มเนื้อหาของหน้าแนะนำเพื่อนตามต้องการ
+       
           ],
         ),
       ),
