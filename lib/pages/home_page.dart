@@ -26,10 +26,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildRectangleWithMargin(String imagePath, String text) {
     return Container(
-      margin:
-          EdgeInsets.fromLTRB(50.0, 0, 50.0, 0), // ระยะห่างด้านขวา 20 พิกเซล
+      margin: EdgeInsets.fromLTRB(4.0, 0, 4.0, 0), // ระยะห่างด้านขวา 20 พิกเซล
       width: 200,
-      height: 100,
+      height: 150,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10), // กำหนดความกลมของมุมเป็น 10
         child: ClipRect(
@@ -37,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 width: 200,
-                height: 100,
+                height: 200,
                 color: Colors.transparent,
                 child: Image.asset(imagePath, fit: BoxFit.cover),
               ),
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 right: 0,
                 child: Container(
                   padding: EdgeInsets.all(4.0),
-                  color: Colors.white.withOpacity(0.8), // สีพื้นหลังข้อความ
+                  color: Colors.white.withOpacity(0.8),
                   child: Text(
                     text,
                     textAlign: TextAlign.center,
@@ -129,7 +128,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          width: 500.0,
+          width: MediaQuery.of(context).size.width * 0.8,
           height: 35.0,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -139,7 +138,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Icon(Icons.search),
               SizedBox(width: 8.0),
-              Expanded(
+              Flexible(
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search',
@@ -179,218 +178,247 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Expanded(
-            child: PageView.builder(
-                itemCount: 3,
-                pageSnapping: true,
-                itemBuilder: (context, pagePosition) {
-                  return Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(images[pagePosition]),
-                    width: 20,
-                    height: 20,
-                  );
-                }),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'หมวดหมู่',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 200,
+                    child: PageView.builder(
+                      itemCount: 3,
+                      pageSnapping: true,
+                      itemBuilder: (context, pagePosition) {
+                        return Container(
+                          margin: EdgeInsets.all(10),
+                          child: Image.asset(images[pagePosition]),
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'หมวดหมู่',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 214, 141, 6),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CategoryPage()),
+                                  );
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  child: Text(
+                                    'ทั้งหมด',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                _buildIconButtonWithCircleBorder(
+                                  'assets/images/m1_homepage.png',
+                                  'ยา',
+                                ),
+                                SizedBox(width: 2),
+                                _buildIconButtonWithCircleBorder(
+                                  'assets/images/m2_homepage.png',
+                                  'เครื่องสำอาง',
+                                ),
+                                SizedBox(width: 2),
+                                _buildIconButtonWithCircleBorder(
+                                  'assets/images/m3_homepage.png',
+                                  'อาหารเสริม',
+                                ),
+                                SizedBox(width: 2),
+                                _buildIconButtonWithCircleBorder(
+                                  'assets/images/m4_homepage.png',
+                                  'อุปกรณ์ทางการแพทย์',
+                                ),
+                                SizedBox(width: 2),
+                                _buildIconButtonWithCircleBorder(
+                                  'assets/images/m5_homepage.png',
+                                  'วัสดุทางการแพทย์',
+                                ),
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CategoryPage()),
-                              );
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 20),
-                              child: Text(
-                                'ทั้งหมด',
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 111, 113, 115),
-                                ),
+                        ),
+                        SizedBox(height: 5),
+                        Center(
+                          child: Image.asset(
+                            'assets/images/code_mainpage.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'ขายดีประจำสัปดาห์',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 214, 141, 6),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductTypePage()),
+                            );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20),
+                            child: Text(
+                              'ทั้งหมด',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildIconButtonWithCircleBorder(
-                            'assets/images/m1_homepage.png',
-                            'ยา',
-                          ),
-                          _buildIconButtonWithCircleBorder(
-                            'assets/images/m2_homepage.png',
-                            'เครื่องสำอาง',
-                          ),
-                          _buildIconButtonWithCircleBorder(
-                            'assets/images/m3_homepage.png',
-                            'อาหารเสริม',
-                          ),
-                          _buildIconButtonWithCircleBorder(
-                            'assets/images/m4_homepage.png',
-                            'อุปกรณ์ทางการแพทย์',
-                          ),
-                          _buildIconButtonWithCircleBorder(
-                            'assets/images/m5_homepage.png',
-                            'วัสดุทางการแพทย์',
-                          ),
+                          _buildRectangleWithMargin('assets/images/icon1.png',
+                              'ข้อความที่ต้องการใส่'),
+                          SizedBox(width: 10),
+                          _buildRectangleWithMargin('assets/images/icon1.png',
+                              'ข้อความที่ต้องการใส่'),
+                          SizedBox(width: 10),
+                          _buildRectangleWithMargin('assets/images/icon1.png',
+                              'ข้อความที่ต้องการใส่'),
+                          SizedBox(width: 10),
+                          _buildRectangleWithMargin('assets/images/icon1.png',
+                              'ข้อความที่ต้องการใส่'),
+                          SizedBox(width: 10),
                         ],
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Center(
-                      child: Image.asset(
-                        'assets/images/code_mainpage.png',
-                        fit: BoxFit.cover,
-                      ),
+                  ),
+                  SizedBox(
+                    height: 50.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'สินค้าแนะนำ',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 214, 141, 6),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductTypePage()),
+                            );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20),
+                            child: Text(
+                              'ทั้งหมด',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20.0, 0, 10.0, 0),
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _buildRectangleWithMargin('assets/images/icon2.png',
+                                'ข้อความที่ต้องการใส่'),
+                            SizedBox(width: 10),
+                            _buildRectangleWithMargin('assets/images/icon2.png',
+                                'ข้อความที่ต้องการใส่'),
+                            SizedBox(width: 10),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _buildRectangleWithMargin('assets/images/icon2.png',
+                                'ข้อความที่ต้องการใส่'),
+                            SizedBox(width: 10),
+                            _buildRectangleWithMargin('assets/images/icon2.png',
+                                'ข้อความที่ต้องการใส่'),
+                            SizedBox(width: 10),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                ],
               ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'ขายดีประจำสัปดาห์',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProductTypePage()),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(right: 20),
-                    child: Text(
-                      'ทั้งหมด',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 111, 113, 115),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildRectangleWithMargin(
-                      'assets/images/icon1.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon1.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon1.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon1.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                ]),
-          ),
-          SizedBox(
-            height: 50.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'สินค้าแนะนำ',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProductTypePage()),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(right: 20),
-                    child: Text(
-                      'ทั้งหมด',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 111, 113, 115),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 20.0, 20.0, 0),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildRectangleWithMargin(
-                      'assets/images/icon2.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon2.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon2.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                  _buildRectangleWithMargin(
-                      'assets/images/icon2.png', 'ข้อความที่ต้องการใส่'),
-                  SizedBox(width: 10),
-                ]),
-          ),
-          SizedBox(
-            height: 20.0,
-          )
         ],
       ),
+
+      
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
