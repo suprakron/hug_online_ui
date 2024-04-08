@@ -7,47 +7,82 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   @override
-
- 
-
+  Widget buildMenuItemWithImage(String title, String imagePath) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(0),
+      ),
+      child: Row(
+        children: [
+          Image.asset(imagePath, width: 30, height: 30),
+          SizedBox(width: 5),
+          Text(title),
+        ],
+      ),
+    );
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('หมวดหมู่'),
+        title: Text(
+          'หมวดหมู่',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color(0xFF069792),
+        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
+        padding: const EdgeInsets.only(top: 5.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 450.0, // กำหนดความกว้างของแถบเมนูด้านซ้าย
+              width: 250.0,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  buildMenuItem('รายการ 1', Icons.category),
-                  buildMenuItem('รายการ 2', Icons.category),
-                  buildMenuItem('รายการ 3', Icons.category),
-                  buildMenuItem('รายการ 4', Icons.category),
-                  buildMenuItem('รายการ 5', Icons.category),
+                  buildMenuItemWithImage(
+                      'รายการ 1', 'assets/images/m1_homepage.png'),
+                  buildMenuItemWithImage(
+                      'รายการ 2', 'assets/images/m2_homepage.png'),
+                  buildMenuItemWithImage(
+                      'รายการ 3', 'assets/images/m3_homepage.png'),
+                  buildMenuItemWithImage(
+                      'รายการ 4', 'assets/images/m4_homepage.png'),
+                  buildMenuItemWithImage(
+                      'รายการ 5', 'assets/images/m5_homepage.png'),
+                  buildMenuItemWithImage(
+                      'รายการ 6', 'assets/images/m6_homepage.png'),
                 ],
               ),
             ),
-            Expanded(
+            Container(
+        
+              width: MediaQuery.of(context).size.width -
+                  250,  
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  buildMenuItem('รายการ 1', Icons.category),
-                  buildMenuItem('รายการ 2', Icons.category),
-                  buildMenuItem('รายการ 3', Icons.category),
-                  buildMenuItem('รายการ 4', Icons.category),
-                  buildMenuItem('รายการ 5', Icons.category),
-                  buildMenuItem('รายการ 6', Icons.category),
-                  buildMenuItem('รายการ 7', Icons.category),
-                  buildMenuItem('รายการ 8', Icons.category),
-                  buildMenuItem('รายการ 9', Icons.category),
-                  buildMenuItem('รายการ 10', Icons.category),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(0),
+                        color: Color.fromARGB(255, 105, 158, 223),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          buildMenuItem('รายการ 1'),
+                          buildMenuItem('รายการ 2'),
+                          buildMenuItem('รายการ 3'),
+                          buildMenuItem('รายการ 4'),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -57,17 +92,18 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
-  Widget buildMenuItem(String title, IconData icon) {
+  Widget buildMenuItem(
+    String title,
+  ) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(0),
       ),
       child: Row(
         children: [
-          Icon(icon),
           SizedBox(width: 10.0),
           Text(title),
         ],

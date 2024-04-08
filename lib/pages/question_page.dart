@@ -7,7 +7,14 @@ class QuestionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('คำถามที่พบบ่อย'),
+        title: Text(
+          'คำถามที่พบบ่อย',
+          style: TextStyle(
+              color: Color.fromARGB(255, 239, 233, 233),
+              fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF069792),
       ),
       body: Column(
         children: [
@@ -34,7 +41,8 @@ class QuestionPage extends StatelessWidget {
                                   SizedBox(height: 8),
                                   Text(
                                     'ฉันจะเริ่มต้นใช้งาน HUG ONLINE อย่างไร?',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(fontSize: 12),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -57,8 +65,9 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'อยากปรึกษา เภสัชกร ต้องทำอย่างไร?',
+                                    style: TextStyle(fontSize: 12),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -81,8 +90,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'โควต้าเช็คราคาฟรี 20 ครั้ง หมด! ต้องทำอย่างไร ? ถึงจะกลับมาใช้งานได้เหมือนเดิม',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -111,8 +120,9 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'เลือกรับสินค้า ที่สาขา หรือจัดส่งตามที่อยุ่ ต้องทำอย่างไร',
+                                    style: TextStyle(fontSize: 12),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -135,8 +145,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'ฉันจะค้นหาชื่อสินค้าจากหมวดหมู่ อย่างไร?',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -159,8 +169,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'ฉันจะทำการสั่งซื้อสินค้าได้อย่างไร?',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -189,8 +199,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'ฉันจะทำการชำระเงินได้อย่างไร?',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -213,8 +223,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'ฉันจะทำการตรวจสอบสถานะสินค้าของฉันได้อย่างไร?',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -237,8 +247,8 @@ class QuestionPage extends StatelessWidget {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    '5555555',
-                                    style: TextStyle(fontSize: 16),
+                                    'ฉันจะใช้คูปองส่วนลดได้อย่างไร?',
+                                    style: TextStyle(fontSize: 12),textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
@@ -252,24 +262,114 @@ class QuestionPage extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 20.0),
           Container(
             padding: EdgeInsets.all(16),
-            color: Colors.grey[200],
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          color: Colors.white,
+            child: Column(
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('ติดต่อเรา'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'ติดต่อเราได้ที่.',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('ปุ่มอื่นๆ'),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(color: Colors.grey),
+                            ),
+                            child: Wrap(
+                              children: [
+                                Icon(
+                                  Icons.chat_bubble_outline,
+                                  color: Colors.green,
+                                ),
+                                SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Line ID',
+                                      style: TextStyle(color: Colors.black,fontSize: 12),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      '@healthupgroup',
+                                      style: TextStyle(color: Colors.black,fontSize: 12),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(color: Colors.grey),
+                            ),
+                            child: Wrap(
+                              children: [
+                                Icon(
+                                  Icons.language,
+                                  color: Colors.green,
+                                ),
+                                SizedBox(width: 10),
+
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'เว็ปไซต์',
+                                      style: TextStyle(color: Colors.black,fontSize: 12),
+                                    ),
+                                    SizedBox(
+                                        height:
+                                            5), // เพิ่มระยะห่างระหว่างบรรทัด
+                                    Text(
+                                      'www.hug1988.com',
+                                      style: TextStyle(color: Colors.black,fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );

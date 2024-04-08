@@ -14,12 +14,12 @@ class ChangePasswordPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  top: 10.0), // ระยะห่างด้านบน 10 เซนติเมตร
+                  top: 10.0), 
               child: Center(
                 child: Text(
                   'เปลี่ยนรหัสผ่านใหม่ของคุณ',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold, // กำหนดตัวหนา
+                    fontWeight: FontWeight.bold,  
                     fontSize: 30, // กำหนดขนาดตัวอักษร
                     color: Colors.black, // กำหนดสีข้อความ
                   ),

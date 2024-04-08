@@ -26,17 +26,17 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildRectangleWithMargin(String imagePath, String text) {
     return Container(
-      margin: EdgeInsets.fromLTRB(4.0, 0, 4.0, 0), // ระยะห่างด้านขวา 20 พิกเซล
-      width: 200,
-      height: 150,
+      margin: EdgeInsets.fromLTRB(4.0, 0, 4.0, 0),
+      width: MediaQuery.of(context).size.width * 0.30,
+      height: MediaQuery.of(context).size.width * 0.30,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10), // กำหนดความกลมของมุมเป็น 10
+        borderRadius: BorderRadius.circular(10),
         child: ClipRect(
           child: Stack(
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.width * 0.15,
                 color: Colors.transparent,
                 child: Image.asset(imagePath, fit: BoxFit.cover),
               ),
@@ -80,9 +80,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<String> images = [
-    'assets/images/p1.jpg',
-    'assets/images/p2.jpg',
-    'assets/images/p3.jpg',
+    'assets/images/banner_h1.png',
+    'assets/images/banner_h2.png',
+    'assets/images/banner_h3.png',
+    'assets/images/banner_h4.png',
+    'assets/images/banner_h5.png',
+    'assets/images/banner_h6.png',
   ];
 
   Widget _buildIconButtonWithCircleBorder(String imagePath, String text) {
@@ -106,13 +109,13 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Image.asset(
                   imagePath,
-                  width: 50,
-                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.15,
+                  height: MediaQuery.of(context).size.width * 0.15,
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 3),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 11),
                 ),
               ],
             ),
@@ -182,10 +185,12 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+
                   Container(
-                    height: 200,
+                    height: MediaQuery.of(context).size.width * 0.50,
                     child: PageView.builder(
-                      itemCount: 3,
+                      itemCount: 6,
                       pageSnapping: true,
                       itemBuilder: (context, pagePosition) {
                         return Container(
@@ -195,6 +200,8 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ),
+
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
                     child: Column(
@@ -210,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 214, 141, 6),
+                                  color: Color(0xFFFE8900),
                                 ),
                               ),
                               GestureDetector(
@@ -236,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 5.0, 5.0, 0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
@@ -269,10 +276,10 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 0.05),
                         Center(
                           child: Image.asset(
-                            'assets/images/code_mainpage.png',
+                            'assets/images/code_mainpage.png', width: double.infinity,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -290,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 214, 141, 6),
+                            color: Color(0xFFFE8900),
                           ),
                         ),
                         GestureDetector(
@@ -351,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 214, 141, 6),
+                            color: Color(0xFFFE8900),
                           ),
                         ),
                         GestureDetector(
@@ -409,7 +416,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
                 ],
               ),
@@ -417,8 +424,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
-      
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

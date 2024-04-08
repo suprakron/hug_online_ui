@@ -2,6 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:hug_online_ui/pages/productdetail_page.dart';
 
 class ProductTypePage extends StatelessWidget {
+  Widget _buildIconButtonWithCircleBorder(String imagePath, String text) {
+    return SizedBox(
+      width: 100,
+      height: 100,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.transparent, width: 2.0),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  imagePath,
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(height: 8),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 14),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +77,10 @@ class ProductTypePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-                    Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProductDetailPage()),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductDetailPage()),
+              );
             },
           ),
           IconButton(
@@ -52,10 +89,7 @@ class ProductTypePage extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.home),
-            onPressed: () {
-
-
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -65,30 +99,48 @@ class ProductTypePage extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  buildMenuItem('ยา', Colors.red, 100, 50),
-                  buildMenuItem('เครื่องสำอาง', Colors.blue, 100, 50),
-                  buildMenuItem('อาหารเสริม', Colors.green, 100, 50),
-                  buildMenuItem('อุปกรณ์การแพทย์', Colors.orange, 100, 50),
-                  buildMenuItem('วัสดุทางการแพทย์', Colors.purple, 100, 50),
-                ],
+              padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    buildMenuItem('ยา', Colors.red, 100, 50),
+                    SizedBox(width: 2),
+                    buildMenuItem('เครื่องสำอาง', Colors.blue, 100, 50),
+                    SizedBox(width: 2),
+                    buildMenuItem('อาหารเสริม', Colors.green, 100, 50),
+                    SizedBox(width: 2),
+                    buildMenuItem('อุปกรณ์การแพทย์', Colors.orange, 100, 50),
+                    SizedBox(width: 2),
+                    buildMenuItem('วัสดุทางการแพทย์', Colors.purple, 100, 50),
+                  ],
+                ),
               ),
             ),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              childAspectRatio: 0.5,
-              padding: EdgeInsets.all(16.0),
+            Stack(
               children: [
-                buildProductItem('Product 1', 'assets/images/Product_A.jpg'),
-                buildProductItem('Product 2', 'assets/images/Product_A.jpg'),
-                buildProductItem('Product 3', 'assets/images/Product_A.jpg'),
+                GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.8,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 5.0, vertical:5.0),
+                  children: [
+                    buildProductItem('Product 1', 'assets/images/product_1.png',
+                        'assets/images/component1.png'),
+                    buildProductItem('Product 2', 'assets/images/product_1.png',
+                        'assets/images/component1.png'),
+                    buildProductItem('Product 3', 'assets/images/product_1.png',
+                        'assets/images/component1.png'),
+                    buildProductItem('Product 4', 'assets/images/product_1.png',
+                        'assets/images/component1.png'),
+                  ],
+                ),
+                
               ],
             ),
           ],
@@ -118,30 +170,44 @@ class ProductTypePage extends StatelessWidget {
     );
   }
 
-  Widget buildProductItem(String title, String imagePath) {
-    return Container(
-      margin: EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: AspectRatio(
-        aspectRatio: 1.0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
+  Widget buildProductItem(
+      String title, String imagePath, String componentImagePath) {
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          child: AspectRatio(
+            aspectRatio: 1.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(height: 5.0),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            SizedBox(height: 8.0),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-            ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          left: 0,
+          top: 0,
+          child: Image.asset(
+            componentImagePath,
+            width: 100, 
+            height: 100,  
+          ),
+        ),
+      ],
     );
   }
 }

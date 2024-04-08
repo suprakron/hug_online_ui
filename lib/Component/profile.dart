@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hug_online_ui/Component/editprofile_page.dart';
 import 'package:hug_online_ui/pages/home_page.dart';
@@ -27,70 +28,103 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('โปรไฟล์'),
+        // title: Text('โปรไฟล์'),
         backgroundColor: Color(0xFF069792),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            color: Color(0xFF069792),
-            height: 100,
-            child: Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundImage:
-                        AssetImage('assets/images/Icon_Profile.png'),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'ชื่อผู้ใช้งาน',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EditProfilePage()),
-                    );
-                  },
-                  child: Container(
-                    width: 50,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 25, 25, 25),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'แก้ไข',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: const Color.fromARGB(255, 226, 233, 238),
+          SingleChildScrollView(
+            child: Container(
+              color: Color(0xFF069792),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'โปรไฟล์',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(height: 4.0),
+                            CircleAvatar(
+                              radius: 50,
+                              backgroundImage:
+                                  AssetImage('assets/images/Icon_Profile.png'),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 10.0, top: 25.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'ชื่อผู้ใช้งาน',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(height: 4.0),
+                              Text(
+                                '555555',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EditProfilePage()),
+                          );
+                        },
+                        child: Container(
+                          width: 50,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 25, 25, 25),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'แก้ไข',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: const Color.fromARGB(255, 226, 233, 238),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  SizedBox(height: 2), // ระยะห่างระหว่าง Row แรกกับ Row ที่สอง
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Card(
             child: ListTile(
               onTap: () {
@@ -189,6 +223,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.0),
+
           Positioned(
             bottom: 0,
             left: 0,

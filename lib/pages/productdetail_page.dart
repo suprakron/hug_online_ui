@@ -17,52 +17,62 @@ class ProductDetailPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: Colors.grey[300],
+            color: Color(0xFFF0F0F2),
             padding: EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              'assets/images/Product_A.jpg',
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 100,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/images/product_1.png',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: 250,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'รายละเอียดสินค้า',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                            SizedBox(height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'ยาสีฟันเทพไทย รสสเปียร์มิ้น 70กรัม',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
+                                IconButton(
+                                  icon: Icon(Icons.favorite_border),
+                                  onPressed: () {},
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '95 ฿',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFFFE8900),
                               ),
-                              IconButton(
-                                icon: Icon(Icons.favorite_border),
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
-                          Text(
-                            'รายละเอียดเพิ่มเติมของสินค้าที่ต้องการแสดง',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -75,14 +85,14 @@ class ProductDetailPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'รายละเอียดสินค้า',
+                  'ส่วนประกอบสินค้า',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'รายละเอียดเพิ่มเติมของสินค้าที่ต้องการแสดง',
+                  'เกลือ, พิมเสน, กานพลู, การบูร, สาระแหน่, ข่อย',
                   style: TextStyle(fontSize: 16),
                 ),
               ],
@@ -92,21 +102,46 @@ class ProductDetailPage extends StatelessWidget {
           Container(
             color: Colors.grey[300],
             padding: EdgeInsets.all(20),
-            child: Column(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'รายระเอียดสินค้า',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  ' รายระเอียดเพิ่มเติมของสินค้าที่ต้องการแสดง',
-                  style: TextStyle(fontSize: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'รายละเอียดสินค้า',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'ข้อบ่งใช้',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        'วิธีการใช้',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        'คำแนะนำ',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        'ข้อควรระวัง',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                          Text(
+                        'อาการข้างเคียง',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 225.0),
+          SizedBox(height: 80.0),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             alignment: Alignment.bottomLeft,
@@ -114,21 +149,43 @@ class ProductDetailPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  icon: Icon(Icons.chat),
+                  icon: Icon(Icons.message),
                   onPressed: () {},
                 ),
                 SizedBox(width: 8),
                 Flexible(
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text('เพิ่มไปยังรถเข็น'),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF069792)),
+                      minimumSize:
+                          MaterialStateProperty.all<Size>(Size(150, 60)),
+                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                          EdgeInsets.all(5)),
+                    ),
+                    child: Text(
+                      'เพิ่มไปยังรถเข็น',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(width: 8),
                 Flexible(
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text('ซื้อเลย'),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFFFE8900)),
+                      minimumSize:
+                          MaterialStateProperty.all<Size>(Size(150, 60)),
+                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                          EdgeInsets.all(5)),
+                    ),
+                    child: Text(
+                      'ซื้อเลย',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(width: 8),
