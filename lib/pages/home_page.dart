@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
   Widget _buildRectangleWithMargin(String imagePath, String text) {
     return Container(
       margin: EdgeInsets.fromLTRB(4.0, 0, 4.0, 0),
-      width: MediaQuery.of(context).size.width * 0.30,
-      height: MediaQuery.of(context).size.width * 0.30,
+      width: MediaQuery.of(context).size.width * 0.40,
+      height: MediaQuery.of(context).size.width * 0.55,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: ClipRect(
@@ -185,8 +185,6 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
-
                   Container(
                     height: MediaQuery.of(context).size.width * 0.50,
                     child: PageView.builder(
@@ -200,8 +198,6 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ),
-
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
                     child: Column(
@@ -279,7 +275,8 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(height: 0.05),
                         Center(
                           child: Image.asset(
-                            'assets/images/code_mainpage.png', width: double.infinity,
+                            'assets/images/code_mainpage.png',
+                            width: double.infinity,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -322,31 +319,43 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8.0, 8.0, 0),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _buildRectangleWithMargin('assets/images/icon1.png',
-                              'ข้อความที่ต้องการใส่'),
-                          SizedBox(width: 10),
-                          _buildRectangleWithMargin('assets/images/icon1.png',
-                              'ข้อความที่ต้องการใส่'),
-                          SizedBox(width: 10),
-                          _buildRectangleWithMargin('assets/images/icon1.png',
-                              'ข้อความที่ต้องการใส่'),
-                          SizedBox(width: 10),
-                          _buildRectangleWithMargin('assets/images/icon1.png',
-                              'ข้อความที่ต้องการใส่'),
-                          SizedBox(width: 10),
-                        ],
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.99,
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 5.0, 5.0, 0),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                _buildRectangleWithMargin(
+                                    'assets/images/icon1.png',
+                                    'สินค้าชิ้นที่ 1'),
+                                SizedBox(width: 10),
+                                _buildRectangleWithMargin(
+                                    'assets/images/icon1.png',
+                                    'สินค้าชิ้นที่ 2'),
+                                SizedBox(width: 10),
+                                _buildRectangleWithMargin(
+                                    'assets/images/icon1.png',
+                                    'สินค้าชิ้นที่ 3'),
+                                SizedBox(width: 10),
+                                _buildRectangleWithMargin(
+                                    'assets/images/icon1.png',
+                                    'สินค้าชิ้นที่ 4'),
+                                SizedBox(width: 10),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   SizedBox(
-                    height: 50.0,
+                    height: 10.0,
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 0),
@@ -383,36 +392,41 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20.0, 0, 10.0, 0),
-                    child: ListView(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            _buildRectangleWithMargin('assets/images/icon2.png',
-                                'ข้อความที่ต้องการใส่'),
-                            SizedBox(width: 10),
-                            _buildRectangleWithMargin('assets/images/icon2.png',
-                                'ข้อความที่ต้องการใส่'),
-                            SizedBox(width: 10),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            _buildRectangleWithMargin('assets/images/icon2.png',
-                                'ข้อความที่ต้องการใส่'),
-                            SizedBox(width: 10),
-                            _buildRectangleWithMargin('assets/images/icon2.png',
-                                'ข้อความที่ต้องการใส่'),
-                            SizedBox(width: 10),
-                          ],
-                        ),
-                      ],
+                  SizedBox(height: 10),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 18,
+                    height: MediaQuery.of(context).size.height * 19.8,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+                      child: ListView(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildRectangleWithMargin(
+                                  'assets/images/icon2.png', 'สินค้าชิ้นที่ 1'),
+                              SizedBox(width: 10),
+                              _buildRectangleWithMargin(
+                                  'assets/images/icon2.png', 'สินค้าชิ้นที่ 2'),
+                              SizedBox(width: 10),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildRectangleWithMargin(
+                                  'assets/images/icon2.png', 'สินค้าชิ้นที่ 3'),
+                              SizedBox(width: 10),
+                              _buildRectangleWithMargin(
+                                  'assets/images/icon2.png', 'สินค้าชิ้นที่ 4'),
+                              SizedBox(width: 10),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -494,35 +508,35 @@ class _HomePageState extends State<HomePage> {
         onTap: _onItemTapped,
         backgroundColor: Colors.blue,
       ),
-      floatingActionButton: SpeedDial(
-        icon: Icons.login,
-        onPress: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Login()),
-          );
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10), // ปรับขนาดของรูปร่าง
-        ),
-        backgroundColor: const Color.fromARGB(255, 31, 57, 32),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(width: 10),
-            Spacer(),
-            Image.asset(
-              'assets/images/logo_loginmain.png',
-              width: 24,
-              height: 24,
-            ),
-            SizedBox(width: 10),
-            Text(
-              'เข้าสู่ระบบ',
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(width: 10),
-          ],
+      floatingActionButton: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.15,
+        height: MediaQuery.of(context).size.width * 0.15,
+        child: SpeedDial(
+          icon: Icons.login,
+          onPress: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Login()),
+            );
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: const Color.fromARGB(255, 31, 57, 32),
+          child: Wrap(
+           alignment: WrapAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/logo_loginmain.png',
+                width: 24,
+                height: 24,
+              ),
+              Text(
+                'เข้าสู่ระบบ',
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );

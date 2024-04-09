@@ -237,10 +237,11 @@ class ProfilePage extends StatelessWidget {
           ),
         ],
       ),
+      
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            // icon: Icon(Icons.home),
+ 
             icon: IconButton(
               icon: Icon(Icons.home),
               onPressed: () {
@@ -252,6 +253,7 @@ class ProfilePage extends StatelessWidget {
             ),
             label: 'หน้าแรก',
           ),
+
           BottomNavigationBarItem(
             icon: IconButton(
               icon: Icon(Icons.location_on),
