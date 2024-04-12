@@ -89,9 +89,10 @@ class _HomePageState extends State<HomePage> {
   ];
 
   Widget _buildIconButtonWithCircleBorder(String imagePath, String text) {
+    
     return SizedBox(
-      width: 100,
-      height: 100,
+      width: MediaQuery.of(context).size.width* 0.35,
+      height: MediaQuery.of(context).size.height * 0.20,
       child: Stack(
         children: [
           Positioned.fill(
@@ -102,6 +103,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
           Align(
             alignment: Alignment.center,
             child: Column(
@@ -178,6 +180,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+     
+     
+     
       body: Column(
         children: [
           Expanded(
@@ -199,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 4.0),
+                    padding: const EdgeInsets.fromLTRB(5.0, 10.0, 12.0, 4.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -438,6 +443,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+
+
+
+      
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -508,19 +517,27 @@ class _HomePageState extends State<HomePage> {
         onTap: _onItemTapped,
         backgroundColor: Colors.blue,
       ),
+     
+     
+     
+     
+     
+     
       floatingActionButton: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.15,
+        width: MediaQuery.of(context).size.width * 0.90,
         height: MediaQuery.of(context).size.width * 0.15,
         child: SpeedDial(
           icon: Icons.login,
           onPress: () {
+
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Login()),
             );
+
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(7),
           ),
           backgroundColor: const Color.fromARGB(255, 31, 57, 32),
           child: Wrap(
@@ -533,7 +550,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 'เข้าสู่ระบบ',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 12),
               ),
             ],
           ),

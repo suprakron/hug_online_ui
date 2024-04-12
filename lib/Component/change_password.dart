@@ -12,6 +12,7 @@ class ChangePasswordPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            
             Padding(
               padding: const EdgeInsets.only(
                   top: 10.0), 
@@ -20,12 +21,13 @@ class ChangePasswordPage extends StatelessWidget {
                   'เปลี่ยนรหัสผ่านใหม่ของคุณ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,  
-                    fontSize: 30, // กำหนดขนาดตัวอักษร
-                    color: Colors.black, // กำหนดสีข้อความ
+                    fontSize: 30,  
+                    color: Colors.black,  
                   ),
                 ),
               ),
             ),SizedBox(height: 30.0),
+
             TextField(
               decoration: InputDecoration(
                 labelText: 'รหัสผ่านใหม่',

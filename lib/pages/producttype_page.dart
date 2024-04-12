@@ -93,6 +93,7 @@ class ProductTypePage extends StatelessWidget {
           ),
         ],
       ),
+      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
